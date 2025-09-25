@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     private static final Spotify spotify = new Spotify();
     private static final Scanner scanner = new Scanner(System.in);
+    private static SpotiFyle fyle = new SpotiFyle();
 
     private static UserType userType = null;
 
@@ -91,6 +92,12 @@ public class Main {
 
     }
 
+    public static void makeFileWithSongs(){
+        System.out.println("What would you like to name your file?: ");
+        fyle.setName(scanner.nextLine());
+        fyle.createFile();
+        fyle.writeFile();
+    }
 
 
     private static void searchForSong() {
@@ -138,7 +145,8 @@ public class Main {
                     3: Show all your songs
                     4: Rename one of your songs
                     5: Search for a song
-                    6: Exit
+                    6: Make a file of your songs
+                    8: Exit
                     """);
 
             int whichAction = scanner.nextInt();
@@ -160,6 +168,8 @@ public class Main {
                 case 5:
                     searchForSong();
                 case 6:
+                    makeFileWithSongs();
+                case 7:
                     exit = true;
             }
         }
