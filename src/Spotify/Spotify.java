@@ -34,7 +34,6 @@ public class Spotify {
         songs.remove(song);
     }
 
-
     public Sang findSong(int index) {
         if (index < 0 || index >= songs.size())
             throw new IndexOutOfBoundsException("Index out of bounds");
@@ -83,7 +82,7 @@ public class Spotify {
     public String toString() {
         String builder = "";
         for (int i = 0; i < songs.size(); i++) {
-            builder += i + ": " + songs.get(i).toString();
+            builder += i + 1 + ": " + songs.get(i).toString();
             builder += "\n";
         }
         return builder;

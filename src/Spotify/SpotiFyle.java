@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class SpotiFyle {
     private static final Scanner scanner = new Scanner(System.in);
-    private static Spotify spotify = new Spotify();
+     // private static Spotify spotify = new Spotify();
     static String fileName;
 
     //getter
@@ -22,10 +22,8 @@ public class SpotiFyle {
     public static void writeFile(){
         try {
             FileWriter myWriter = new FileWriter(getName());
-            System.out.println("contents: " + spotify.toString());
-            System.out.println("name: " + getName());
 
-            myWriter.write(content);
+            myWriter.write(Main.spotify.toString());
             myWriter.close();  // must close manually
 
             System.out.println("Successfully wrote to the file.");

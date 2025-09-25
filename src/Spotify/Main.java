@@ -3,7 +3,7 @@ package Spotify;
 import java.util.Scanner;
 
 public class Main {
-    private static final Spotify spotify = new Spotify();
+    static final Spotify spotify = new Spotify();
     private static final Scanner scanner = new Scanner(System.in);
     private static SpotiFyle fyle = new SpotiFyle();
 
@@ -56,7 +56,6 @@ public class Main {
         }
     }
 
-
     private static void removeSong() {
         if (userType == UserType.Broke) {
             SpotifyAd.printAd(5);
@@ -93,12 +92,20 @@ public class Main {
     }
 
     public static void makeFileWithSongs(){
+        if (userType == UserType.Broke) {
+            SpotifyAd.printAd(5);
+        }
         System.out.println("What would you like to name your file?: ");
         fyle.setName(scanner.nextLine());
+        if (userType == UserType.Broke) {
+            SpotifyAd.printAd(5);
+        }
         fyle.createFile();
+        if (userType == UserType.Broke) {
+            SpotifyAd.printAd(5);
+        }
         fyle.writeFile();
     }
-
 
     private static void searchForSong() {
         if (userType == UserType.Broke) {

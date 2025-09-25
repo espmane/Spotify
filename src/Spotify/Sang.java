@@ -27,6 +27,6 @@ public class Sang {
 
     @Override
     public String toString() {
-        return title;
+        return title + " (" + genre + ")";
     }
 }
