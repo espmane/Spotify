@@ -27,7 +27,7 @@ public class Main {
             switch (input.toLowerCase()) {
                 case "free":
                 case "1":
-                    userType = UserType.Broke;
+                    userType = UserType.Free;
                     break;
                 case "premium":
                 case "2":
@@ -40,9 +40,7 @@ public class Main {
     }
 
     private static void createSong() {
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
         try {
             System.out.print("Title: ");
             String title = scanner.nextLine();
@@ -57,9 +55,7 @@ public class Main {
     }
 
     private static void removeSong() {
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
         System.out.println(spotify.toString());
         System.out.println("Which song would you like to remove?");
         String song2 = scanner.nextLine();
@@ -67,17 +63,13 @@ public class Main {
     }
 
     private static void showSongs() {
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
         System.out.println("Here's a list of your songs in your library: ");
         spotify.toString();
     }
 
     private static void renameSong() {
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
 
         System.out.println(spotify.toString());
 
@@ -92,25 +84,19 @@ public class Main {
     }
 
     public static void makeFileWithSongs(){
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
+
         System.out.println("What would you like to name your file?: ");
         fyle.setName(scanner.nextLine());
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
         fyle.createFile();
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
         fyle.writeFile();
     }
 
     private static void searchForSong() {
-        if (userType == UserType.Broke) {
-            SpotifyAd.printAd(5);
-        }
+        freeUserAd();
+
         System.out.println("Which song would you like to search for?: ");
         String songName = scanner.nextLine();
 
@@ -122,12 +108,20 @@ public class Main {
         }
     }
 
+    private static void freeUserAd(){
+        if (userType.equals(UserType.Free)){
+            clearScreen();
+            SpotifyAd.printAd(5);
+            clearScreen();
+        }
+    }
+
 
     public static void main(String[] args) {
         readUserType();
         System.out.println("-".repeat(20));
 
-        if (userType.equals(UserType.Broke)) {
+        if (userType.equals(UserType.Free)) {
             SpotifyAd.printWelcome();
             clearScreen();
         }
@@ -137,9 +131,7 @@ public class Main {
 
         boolean exit = false;
         while (!exit) {
-            if (userType.equals(UserType.Broke)) {
-                SpotifyAd.printAd(5);
-            }
+            freeUserAd();
 
             System.out.println("Here's a list of the songs in your library: ");
             System.out.println(spotify);
@@ -153,7 +145,7 @@ public class Main {
                     4: Rename one of your songs
                     5: Search for a song
                     6: Make a file of your songs
-                    8: Exit
+                    7: Exit
                     """);
 
             int whichAction = scanner.nextInt();

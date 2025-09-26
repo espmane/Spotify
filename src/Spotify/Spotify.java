@@ -53,7 +53,7 @@ public class Spotify {
                 return song;
         }
 
-        throw new NullPointerException("No such song");
+        throw new IllegalArgumentException("No such song");
     }
 
     public ArrayList<Sang> getSongs() {

@@ -1,6 +1,6 @@
 package Spotify;
 
 public enum UserType {
-    Broke,
+    Free,
     Premium,
 }
