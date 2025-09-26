@@ -126,12 +126,11 @@ public class Main {
             clearScreen();
         }
 
-        System.out.println("Welcome to Spotify " + userType.toString() + " user!");
+        System.out.println("Welcome to Spotify " + userType.toString());
         System.out.println("-".repeat(20));
 
         boolean exit = false;
         while (!exit) {
-            freeUserAd();
 
             System.out.println("Here's a list of the songs in your library: ");
             System.out.println(spotify);
